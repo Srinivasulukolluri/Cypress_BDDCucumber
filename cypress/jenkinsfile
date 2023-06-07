@@ -13,7 +13,9 @@ options{
 }
 stages{
 stage('Building'){
+    steps{
     echo "Building the Application"
+    }
 }
 stage('Testing'){
     steps{
@@ -22,7 +24,9 @@ stage('Testing'){
     }
 }
 stage('Deploying'){
+    steps{
     echo "Diploy the application"
+    }
 }
 post{
 
