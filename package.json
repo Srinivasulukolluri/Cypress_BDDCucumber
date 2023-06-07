@@ -1,0 +1,21 @@
+{
+  "name": "bddcucumberwithcypress",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "cy:open":"cypress open",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "srinivas",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^12.11.0",
+    "cypress-cucumber-preprocessor": "^4.3.1"
+  },
+  "cypress-cucumber-preprocessor":{
+     "nonGlobalStepDefinitions":true,
+     "step_definitions":"cypress/e2e/newtours"
+
+  }
+}

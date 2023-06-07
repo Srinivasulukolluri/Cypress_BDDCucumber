@@ -1,0 +1,42 @@
+pipeline{
+
+
+agent any
+parameters{
+    String (name:'SPEC',defaultValue:"cypress/e2e/*.feature", description:"Eneter the script path that you want to execute")
+    choice (name:"BROWSER",choices:['chrome','safari','edge','firefox'], description:"Choice the browser where you want to execute your scripts")
+   
+}
+options{
+
+    ansiColor(xterm)
+}
+stages{
+stage('Building'){
+    echo "Building the Application"
+}
+stage('Testing'){
+    steps{
+        sh "npn i"
+        sh "npx cypress run --browser ${BROWSER} --spec ${SPEC}"
+    }
+}
+stage('Deploying'){
+    echo "Diploy the application"
+}
+post{
+
+    always{
+       publishHTML (target : [allowMissing: false,
+ alwaysLinkToLastBuild: true,
+ keepAll: true,
+ reportDir: 'reports',
+ reportFiles: 'myreport.html',
+ reportName: 'My Reports',
+ reportTitles: 'Srini Report'])
+    }
+}
+
+}
+
+}
