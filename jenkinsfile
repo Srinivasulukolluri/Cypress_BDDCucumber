@@ -31,13 +31,14 @@ stage('Deploying'){
 post{
 
     always{
-       publishHTML (target : [allowMissing: false,
-       alwaysLinkToLastBuild: true,
-       keepAll: true,
-       reportDir: 'reports',
-       reportFiles: 'myreport.html',
-       reportName: 'My Reports',
-       reportTitles: 'Srini Report'])
+    publishHTML([
+    reportName: 'Newman Report'
+    reportDir: 'reports',
+    reportFiles: "${dir('reports') { findFiles(glob: '**/*.html').join(',') ?: 'Not found' }}",
+    allowMissing: true,
+    alwaysLinkToLastBuild: true,
+    keepAll: true,
+])
     }
 }
 
