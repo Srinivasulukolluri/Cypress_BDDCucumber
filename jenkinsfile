@@ -30,7 +30,7 @@ stage('Deploying'){
 }
 post{
 
-stage{
+stage('WorkflowScript'){
     always{
    
    publishHTML( [ 
