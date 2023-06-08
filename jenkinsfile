@@ -33,8 +33,8 @@ post{
     always{
     publishHTML([
     reportName: 'Newman Report'
-    reportDir: 'reports',
-    reportFiles: "${dir('reports') { findFiles(glob: '**/*.html').join(',') ?: 'Not found' }}",
+    reportDir: 'cypress/reports',
+    reportFiles: "${dir('cypress/reports') { findFiles(glob: '**/*.html').join(',') ?: 'Not found' }}",
     allowMissing: true,
     alwaysLinkToLastBuild: true,
     keepAll: true,
