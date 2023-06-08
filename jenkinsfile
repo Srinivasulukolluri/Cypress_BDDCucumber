@@ -31,15 +31,8 @@ stage('Deploying'){
 post{
 
     always{
-    publishHTML([
-    reportName: 'Test Results'
-    reportDir: 'cypress/reports/',
-    reportFiles: 'TestResults.html, coverage/index.html',
-    //reportFiles: "${dir('cypress/reports') { findFiles(glob: '**/*.html').join(',') ?: 'Not found' }}",
-    allowMissing: true,
-    alwaysLinkToLastBuild: true,
-    keepAll: true,
-])
+   
+   echo "Delivered successfully"
     }
 }
 
