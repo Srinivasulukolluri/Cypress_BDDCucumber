@@ -3,7 +3,7 @@ pipeline{
 
 agent any
 parameters{
-    String (name:'spec',defaultValue:"cypress/e2e/newtours/*.feature", description:"Eneter the script path that you want to execute")
+    string (name:'spec',defaultValue:"cypress/e2e/newtours/newtours.feature", description:"Eneter the script path that you want to execute")
     choice (name:"BROWSER",choices:['chrome','safari','edge','firefox'], description:"Choice the browser where you want to execute your scripts")
    
 }
@@ -20,7 +20,7 @@ stage('Building'){
 stage('Testing'){
     steps{
         sh "npn i"
-        sh "npx cypress run --browser ${BROWSER} --spec ${SPEC}"
+        sh "npx cypress run --browser ${BROWSER} --spec ${spec}"
     }
 }
 stage('Deploying'){
@@ -32,12 +32,12 @@ post{
 
     always{
        publishHTML (target : [allowMissing: false,
- alwaysLinkToLastBuild: true,
- keepAll: true,
- reportDir: 'reports',
- reportFiles: 'myreport.html',
- reportName: 'My Reports',
- reportTitles: 'Srini Report'])
+       alwaysLinkToLastBuild: true,
+       keepAll: true,
+       reportDir: 'reports',
+       reportFiles: 'myreport.html',
+       reportName: 'My Reports',
+       reportTitles: 'Srini Report'])
     }
 }
 
