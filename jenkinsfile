@@ -29,19 +29,19 @@ stage('Deploying'){
     }
 }
 post{
-stage ('diployed'){
+
     always{
    
    publishHTML( [ 
                 allowMissing: false, 
                 alwaysLinkToLastBuild: false,
                 keepAll: true, 
-                reportDir: 'build/reports/', 
+                reportDir: 'reports', 
                 reportFiles: 'TestResults.html, coverage/index.html', 
                 reportTitles: 'Test Results, Coverage',
                 reportName: 'Test Results Left side link'
 ] )
-    }
+    
 
     }
 }
