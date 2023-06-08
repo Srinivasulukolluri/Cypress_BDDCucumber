@@ -9,7 +9,7 @@ parameters{
 }
 options{
 
-    ansiColor(xterm)
+    ansiColor('xterm')
 }
 stages{
 stage('Building'){
