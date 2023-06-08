@@ -29,7 +29,7 @@ stage('Deploying'){
     }
 }
 post{
-
+stage ('diployed'){
     always{
    
    publishHTML( [ 
@@ -41,7 +41,7 @@ post{
                 reportTitles: 'Test Results, Coverage',
                 reportName: 'Test Results Left side link'
 ] )
-
+    }
 
     }
 }
