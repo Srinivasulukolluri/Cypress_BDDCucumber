@@ -50,6 +50,8 @@ pipeline {
         
         stage('Testing') {
             steps {
+                sh "cd /Users/srinivasulukolluri/Documents/BDDCucumberwithCypress"
+                sh "maven clean install"
                 sh "npm i"
                 sh "npx cypress run --browser ${BROWSER} --spec ${SPEC}"
             }
