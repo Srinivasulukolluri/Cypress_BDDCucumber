@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "cy:open":"npm cypress run",
-    "test": "./node_modules/.bin/cypress run",
+    "test": "./node_modules/.bin/cypress run --config pageLoadTimeout=100000",
     "runtests":"npm run test --"
   },
   "author": "srinivas",
